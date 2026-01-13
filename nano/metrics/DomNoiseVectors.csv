@@ -1,0 +1,6 @@
+filename,path,metric,description
+DomNoiseVectors.csv,nano/metrics,DynamicIDs,"Noise from framework-generated or UUID-like IDs in HAR/DOM snapshots"
+DomNoiseVectors.csv,nano/metrics,HydrationArtifacts,"Noise from SSR/CSR hydration markers and timestamped script blocks"
+DomNoiseVectors.csv,nano/metrics,ABTestClassDrift,"Noise from A/B test-driven class name churn across snapshots"
+DomNoiseVectors.csv,nano/metrics,StabilizedDomSheet,"Spec-aligned, noise-reduced DOM grid used as Javaspectre input"
+DomNoiseVectors.csv,nano/metrics,TraceAlignedDrift,"Drift metrics aligned between DOM sheets and OpenTelemetry spans"
