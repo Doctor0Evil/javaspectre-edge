@@ -1,0 +1,25 @@
+{
+  "name": "javaspectre-edge",
+  "version": "0.1.0",
+  "description": "Javaspectre virtual-object excavation core engine with SQLite-backed persistence and observability-friendly CLI.",
+  "type": "module",
+  "main": "src/cli/inspect.js",
+  "bin": {
+    "javaspectre-inspect": "src/cli/inspect.js"
+  },
+  "scripts": {
+    "inspect": "node src/cli/inspect.js",
+    "migrate": "node src/core/PersistenceMigrate.js",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.8.1"
+  },
+  "devDependencies": {
+    "eslint": "^9.11.0"
+  },
+  "license": "MIT"
+}
