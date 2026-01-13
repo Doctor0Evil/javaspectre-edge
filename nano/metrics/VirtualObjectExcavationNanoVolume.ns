@@ -1,0 +1,25 @@
+define NanoDataVolume(
+  N_vo,          // count of virtual-objects
+  N_rel,         // count of relationships
+  depth,         // effective excavation depth
+  p_fast,        // fast-loop fraction (0–1)
+  p_slow,        // slow-loop fraction (0–1)
+  c_vo,          // nanobytes per virtual-object
+  c_rel,         // nanobytes per relationship
+  c_depth,       // nanobytes per depth unit
+  c_fast,        // fast-loop factor (≤ 1)
+  c_slow,        // slow-loop factor (≥ 1)
+  stability,     // mean stability score [0,1]
+  drift          // normalized drift rate [0,1]
+) -> nanobyte {
+
+  let U_base  = N_vo * c_vo + N_rel * c_rel + depth * c_depth;
+  let U_fast  = p_fast * c_fast * U_base;
+  let U_slow  = p_slow * c_slow * U_base;
+  let V_nano  = U_fast + U_slow;
+
+  let w_uncertainty = 1 + drift - stability;
+  let V_nano_eff    = V_nano * w_uncertainty;
+
+  return to.nanobyte(V_nano_eff);
+}
